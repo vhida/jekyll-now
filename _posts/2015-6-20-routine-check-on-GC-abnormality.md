@@ -1,4 +1,4 @@
-# Troubleshooting Routine on GC Abnormality
+Troubleshooting Routine on GC Abnormality
 
 Just fixed CPU usage burst problem caused by frequent GC. It turns out that one sorting operation on a very large array would take up the young generation heap of default size very quickly. Usually the sage says don't temper with JVM settings unless you know what you are doing. Many are intimidated and follow the wisdom. However, settings are for users to set, aren't they. Sometimes the problems requires fine-tuning the JVM and some caused by improper parameters . Here are some basic things. 
 
