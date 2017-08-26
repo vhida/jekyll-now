@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Blogging Like a Hacker
+title: Workshop for CQL
 ---
+
 CQL, stands for Query Language for Cassandra.Compared to SQL, it’s clearly limiting in its grammar. This is largely to avoid inefficient queries for Cassandra is mainly used to store massive data in distributed systems. Data are hashed against partition key and then distributed to each node to store. Therefore one key in designing a cassandra query is to scan less as possible nodes as it can be very inefficient.    
       
 We know that relational database is a set of rows. Cassandra is a set of partitions. Without cluster keys, a partition is simple a single row. A partition that consists of multiple rows are simply wide-row. It’s the hash value of partition key that cassandra use to decide which node data should be stored. It’s a hash indexing, not a range. We  need clustering key to order the data and give a range and according to which query is made possible. An example may be more illustrative.  
@@ -28,7 +29,7 @@ CREATE TABLE log(
 The data would be stored in a relational database like this:  
 
 node |  date | number | name   
------|-------|--------|-----
+---- | ----- | ------ | ----
 n1  |   feb |  1   |    name1    
 n1  |   feb |  2   |    name2  
 n2  |   feb |  1   |    name3  

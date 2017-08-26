@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blogging Like a Hacker
+title: A Comparision Between MongoDB and Cassandra
 ---
 
 MngoDB can be a great alternative to MySQL, but it’s not really 
