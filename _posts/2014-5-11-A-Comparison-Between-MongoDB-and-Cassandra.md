@@ -1,3 +1,8 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
 MngoDB can be a great alternative to MySQL, but it’s not really 
 appropriate for the scale-out applications targeted by Cassandra. Still, as 
 early members of the NoSQL category, the two do draw comparisons.

@@ -1,3 +1,7 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
 Years back, when I first came to the realm of programming I looked for sages and hoped to learn from them. Some tips I found turned out to be truely valueable along these years. I can't remember from where I take them. but anyway.  
   
 Decompose the problem to manageable size. This is the essential spirit of Software development.   

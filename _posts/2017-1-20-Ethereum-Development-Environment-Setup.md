@@ -1,3 +1,8 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
 Here's a brief environment setup how-to for Ethereum development. It's based on Mac OS.   
 1. Install Python2.7.     
 2. Install solc, the solidity compiler, and solc-cli   
