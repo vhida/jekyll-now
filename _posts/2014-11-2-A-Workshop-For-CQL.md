@@ -12,11 +12,11 @@ CREATE KEYSPACE test WITH REPLICATION = {
 ```
 ```
 CREATE TABLE log(    
-    `node text,`    
-    `date text,`    
-    `name text,`  
-    `number int,`  
-    `Primary Key(node,date,number)`  
+    node text,    
+    date text,    
+    name text,  
+    number int,  
+    Primary Key(node,date,number)`  
 )
 ```
 
@@ -24,9 +24,10 @@ CREATE TABLE log(
 The data would be stored in a relational database like this:  
 
 node |  date | number | name   
-n1  |   feb |  1   |    name1  
-n1  |   feb |  2   |    name2
-n2  |   feb |  1   |    name3
+-----|-------|--------|-----
+n1  |   feb |  1   |    name1    
+n1  |   feb |  2   |    name2  
+n2  |   feb |  1   |    name3  
 n2  |   feb |  2   |    name4  
     
 In Cassandra, it looks like this:    
