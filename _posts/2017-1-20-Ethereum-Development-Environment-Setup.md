@@ -6,8 +6,8 @@ Here's a brief environment setup how-to for Ethereum development. It's based on 
 `brew tap ethereum/ethereum`  
 `brew install ethereum`  
 4. Install testrpc (to deploy smart contract as local test environment) via pip.      
-5. Install Node.js.    
-6.Install truffle(for fast local compiling and deploying smart contracts).    
+5. Install Node.js.     
+6. Install truffle(for fast local compiling and deploying smart contracts).    
 `npm install -g truffle`  
 
 
