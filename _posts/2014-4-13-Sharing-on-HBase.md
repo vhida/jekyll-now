@@ -2,8 +2,7 @@ Recently I learnt some materials on HBase, not directly relevant to our work, bu
 HBase stands for Hadoop Database. It provides Hadoop what BigTable provides for Google file system. It’s non-relational, column(column family) based and distributed.   
      
 A HBase system mainly consists of ZooKeeper, HMaster and HRegionServer.   
-![system]
-(../images/HBase/system_structure.png)
+![system](../images/HBase/system_structure.png)
    
 1. ZooKeeper stores meta data, provides entry point of locating Region, Monitor HRegionServer. Its majority voting mechanism ensures that one single master is alive and there’s no single point of failure.   
 2. HMaster manages CRUD operations on data, load balance of HRegionServer, distribution of Region and migration of Region to other HRegionServer.   
@@ -11,8 +10,7 @@ A HBase system mainly consists of ZooKeeper, HMaster and HRegionServer.
 4.Storefile、Hfile stores binary hadoop file. Storefile is the lightweight wrapper of Hfile.  
 
 ## Data Model  
-![data_model]
-(../images/HBase/data_model.jpg)
+![datamodel](../images/HBase/data_model.jpg)
    
 The data above, in fact, consists of one single row. The Row Key is the unique identifier of the row. Data is stored by column family (CF1,CF2) and qualifier(qw as in CF1:qw). Roughly column family and qualifier can be understood as two level hierarchical structure. The timestamp gives versions of stored data, in chronological order. Data access, storage and tuning are all managed in the column family level, which hs to be pre-defined, like schema. Like said,  the combination of {row key，column(=<family> +<qualifier>)，version} gives unique data unit.   
 
@@ -24,14 +22,11 @@ Memstore and StoreFile
 One Region is made of multiple Stores, each of which corresponds to a column family.   
 A store includes MemStore in RAM and StoreFile in persistent storage. Data is first written into Memstore. When Memstore reaches its capacity, HBase will trigger flashcache action and write the data into a single StoreFile.   
 　　　　　　　　　　
-![read_write]
-(../images/HBase/table_region.png)
-![region_cluster]
-(../images/HBase/region_cluster.jpg)
+![readwrite](../images/HBase/table_region.png)
+![regioncluster](../images/HBase/region_cluster.jpg)
 　　
 ## Hbase Read and Write 
-![read_write]
-(../images/HBase/read_write.png)
+![readwrite](../images/HBase/read_write.png)
    
 ### Hbase Write  
 According to ZooKeeper, the system locates  -ROOT- table, and then .META. table which stores the position of the region. Client then uses this information to access HRegionServer and correspondent Region.  MemStore is the write buffer in RAM. When it reaches its capacity, data would be written into persistent storage. Data in MemStore could be lost in case of server failure.    
