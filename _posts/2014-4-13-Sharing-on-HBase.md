@@ -2,7 +2,8 @@ Recently I learnt some materials on HBase, not directly relevant to our work, bu
 HBase stands for Hadoop Database. It provides Hadoop what BigTable provides for Google file system. It’s non-relational, column(column family) based and distributed.   
      
 A HBase system mainly consists of ZooKeeper, HMaster and HRegionServer.   
-![system](../images/HBase/system_structure.png)
+
+![system](../images/HBase/system_structure.jpg)
    
 1. ZooKeeper stores meta data, provides entry point of locating Region, Monitor HRegionServer. Its majority voting mechanism ensures that one single master is alive and there’s no single point of failure.   
 2. HMaster manages CRUD operations on data, load balance of HRegionServer, distribution of Region and migration of Region to other HRegionServer.   
