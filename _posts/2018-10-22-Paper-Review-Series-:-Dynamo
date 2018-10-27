@@ -1,0 +1,4 @@
+Dynamo is a fully distributed key-value store developed by Amazon that is highly available and scalable with compromise on consistency.
+1. highly availability for writes is achieved by hinted handoff, that is, when is node is down, the writes routed to this node will be redirected to next available node on the hash ring. The writes metadata will have a hint that indicate the writes should be done on the node that is currently unavailable. When the failed node is up again, the writes would be replicated to the node.
+2. Eventual consistency is achieved by vector clock and quorum like voting. By configuring W, R and N, users can have different level of SLA.
+3.  High incremental scalability and load balancing efficiency is achieved by a consistent hashing algorithm to partition data over nodes of the system in which each node in the system is assigned to multiple points in the hash ring.
