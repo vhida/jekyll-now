@@ -1,0 +1,10 @@
+Resilient Distributed Dataset(RDD) is a memory abstraction that brings about data reuse efficiency. Programmers can explicitly partition and persist intermediate data and manipulate it with RDD operators, thus avoiding I/O cost. RDD provides fault-tolerance by making RDD immutable. Updating RDD is in fact transforming it to another RDD. This transformation, called lineage, is logged and can be used to re-construct the original RDD, thus providing a fault-tolerance mechanism.
+Strengths
+1. RDD the abstraction increases data reusability, thus saving I/O cost which can be significant for interactive tasks and iterative computations.
+2. RDD being immutable provides a trivial fault-tolerance mechanism. Updates are in fact creating new RDDs.
+3. RDD works like a production line, which enhances performance significantly.
+Weaknesses:
+1.It seems RDD requires considerably large amount of memory. And it's implementation is based on JVM. Therefore it can't manage memory directly and efficiently. 
+2.It seems Spark requires large amount of memory to be efficient.
+While MapReduce persist intermediate results into external storage, which is painfully I/O expensive, RDD is kept in memory. For iterative and interactive tasks where intermediate data is frequent produced, this can boost the performance dramatically. The main challenge is fault-tolerance mechanism. RDD addresses this issue essentially by a workaround. RDD is designed to be read-only. Therefore consistency is trivial. Updates on data is achieved by making new RDDs. These changes are logged, and can be used to re-construct the previous RDD. It's almost the same idea as marking the edits instead of actual data in version controlling. Finally, a MapReduce server works individually basically like a workshop. It does its own resource management, job scheduling, etc while RDD works like a production line(pipeline). This makes RDD more efficient. 
+RDD has to be persisted into disk if memory is not enough. Scala is JVM based so it cannot manage machine memory directly I guess. Therefore JVM overhead could be potentially problematic.
